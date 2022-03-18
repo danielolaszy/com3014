@@ -3,30 +3,39 @@ import Nav from "./components/Nav";
 import Landing from "./components/Landing";
 import Search from "./components/Search";
 import Results from "./components/Results";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [address, setAddress] = useState("");
+
   return (
-    <main className="">
+    <main>
       {/* Navbar */}
-      <section id="Nav" className="bg-dark">
-        <div class="container text-white">
+      <section id="Nav" className="">
+        <div className="container">
           <Nav />
         </div>
       </section>
 
       {/* Hero */}
-      <section id="Hero" className="bg-dark p-5">
-        <div class="container text-white">
+      <section id="Hero" className="">
+        <div className="container col-xxl-8 px-4 py-5">
           <Landing />
         </div>
       </section>
 
       {/* Search Bar */}
       <section id="Search" className="bg-light p-5">
-        <div class="container">
-          <div class="row justify-content-center">
+        <div className="container">
+          <div className="row justify-content-center">
             <div className="col-md-6">
-              <Search />
+              <p className="lead text-center">Find yourself a safe neighbourhood</p>
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" placeholder="Search address" onChange={(event) => setAddress(event.target.value)} />
+                <button className="btn btn-primary" type="button" id="button-addon2">
+                  Search
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -34,7 +43,7 @@ function App() {
 
       {/* Results */}
       <section id="Results" className="bg-light p-5">
-        <div class="container">
+        <div className="container">
           <Results />
         </div>
       </section>
