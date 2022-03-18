@@ -3,10 +3,13 @@ import Nav from "./components/Nav";
 import Landing from "./components/Landing";
 import Search from "./components/Search";
 import Results from "./components/Results";
+import Crime from "./components/Crime";
 import { useState, useEffect } from "react";
 
 function App() {
   const [address, setAddress] = useState("");
+  const [lat, setLat] = useState(51.2428657);
+  const [lng, setLng] = useState(-0.5896118);
 
   return (
     <main>
@@ -44,7 +47,7 @@ function App() {
       {/* Results */}
       <section id="Results" className="bg-light p-5">
         <div className="container">
-          <Results />
+          <Results lat={lat} lng={lng} />
         </div>
       </section>
     </main>
