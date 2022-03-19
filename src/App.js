@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [address, setAddress] = useState("");
-  const [lat, setLat] = useState(51.2428657);
-  const [lng, setLng] = useState(-0.5896118);
+  const [lat, setLat] = useState(51.2862083);
+  const [lng, setLng] = useState(-0.767494);
 
   return (
     <main>
