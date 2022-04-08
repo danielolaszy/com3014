@@ -12,4 +12,3 @@
    ```JS
    REACT_APP_API_KEY=
    ```
-testing
