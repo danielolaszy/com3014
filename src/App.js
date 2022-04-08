@@ -7,10 +7,6 @@ import { useState, useEffect } from "react";
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [address, setAddress] = useState("");
-<<<<<<< HEAD
-  const [lat, setLat] = useState(51.2862083);
-  const [lng, setLng] = useState(-0.767494);
-=======
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [crimes, setCrimes] = useState([]);
@@ -44,7 +40,6 @@ function App() {
   useEffect(() => {
     getCrimes();
   }, [lat, lng]);
->>>>>>> 53a47987b062bb239a6952795e58a9191d15f44d
 
   return (
     <main>
