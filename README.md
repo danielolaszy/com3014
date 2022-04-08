@@ -6,7 +6,11 @@
    ```
 2. Install npm packages
    ```sh
-   npm install
+   npm i
+   ```
+3. Enter the positionstack API key in a `.env` file
+   ```JS
+   REACT_APP_API_KEY=
    ```
 
 testing
