@@ -1,6 +1,6 @@
 import React from "react";
 
-const Landing = () => {
+const Hero = () => {
   return (
     <div className="px-4 py-5 my-5 text-center">
       <img className="d-block mx-auto mb-4" src="" alt="logo" width="64" height="64" />
@@ -22,4 +22,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Hero;
