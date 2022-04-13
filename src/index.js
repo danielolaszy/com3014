@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import Search from "./components/Search";
+import Dbsearch from "./components/Dbsearch";
+import Report from "./components/Report";
+
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Report />
   </React.StrictMode>,
   document.getElementById("root")
 );

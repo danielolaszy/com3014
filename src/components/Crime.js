@@ -1,26 +1,26 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Crime = ({ category, id, street, outcome }) => {
+const Crime = ({ id, category, location, status }) => {
   const [border, setBorder] = useState("");
 
-  // Checks outcome category and colors border accordingly
+  // Checks status category and colors border accordingly
   const checkOutcome = () => {
-    if (outcome !== null) {
-      if (outcome.category.includes("Under investigation") || outcome.category.includes("Awaiting court")) {
+    if (status !== null) {
+      if (status.category.includes("Under investigation") || status.category.includes("Awaiting court")) {
         setBorder("border-warning");
       }
       if (
-        outcome.category.includes("Investigation complete") ||
-        outcome.category.includes("Further investigation") ||
-        outcome.category.includes("Unable to prosecute") ||
-        outcome.category.includes("Local resolution") ||
-        outcome.category.includes("Offender given a caution")
+        status.category.includes("Investigation complete") ||
+        status.category.includes("Further investigation") ||
+        status.category.includes("Unable to prosecute") ||
+        status.category.includes("Local resolution") ||
+        status.category.includes("Offender given a caution")
       ) {
         setBorder("border-success");
       }
     }
-    if (outcome == null) {
+    if (status == null) {
       setBorder("border-danger");
     }
   };
@@ -34,9 +34,9 @@ const Crime = ({ category, id, street, outcome }) => {
         <div className="card-header">{id}</div>
         <div className="card-body">
           <h5 className="card-title text-capitalize">{category}</h5>
-          <p className="card-text">{street}</p>
+          <p className="card-text">{location}</p>
         </div>
-        <div className="card-footer bg-transparent">{outcome ? outcome.category : "Status unknown"}</div>
+        <div className="card-footer bg-transparent">{status ? status.category : "Status unknown"}</div>
       </div>
     </div>
   );

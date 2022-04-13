@@ -6,7 +6,7 @@ const Results = ({ crimes }) => {
     <>
       <div className="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         {crimes.map((crime) => {
-          return <Crime key={crime.id} category={crime.category} id={crime.id} street={crime.location.street.name} outcome={crime.outcome_status} />;
+          return <Crime key={crime.id} category={crime.category} id={crime.id} location={crime.location.street.name} status={crime.outcome_status} />;
         })}
       </div>
     </>

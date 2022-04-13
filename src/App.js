@@ -1,7 +1,9 @@
 import axios from "axios";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Search from "./components/Search";
+import Apisearch from "./components/Apisearch";
+import Dbsearch from "./components/Dbsearch";
+
 import { useState, useEffect } from "react";
 
 function App() {
@@ -23,9 +25,15 @@ function App() {
 
       <section id="Search">
         <div>
-          <Search />
+          <Apisearch />
         </div>
       </section>
+
+      {/* <section id="Dbsearch">
+        <div>
+          <Dbsearch />
+        </div>
+      </section> */}
     </main>
   );
 }

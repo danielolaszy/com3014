@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Results from "./Results";
+import Apiresults from "./Apiresults";
 import { useState, useEffect } from "react";
 
 const Search = () => {
@@ -62,7 +62,7 @@ const Search = () => {
       </section>
       <section id="Results" className="bg-light p-5">
         <div className="container">
-          <Results crimes={crimes} />
+          <Apiresults crimes={crimes} />
         </div>
       </section>
     </>
