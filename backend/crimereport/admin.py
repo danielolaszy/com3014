@@ -3,7 +3,7 @@ from .models import Crimereport
 
 # Register your models here.
 class crimereportAdmin(admin.ModelAdmin):
-    list_display = ('location', 'description', 'created','modified', 'status')
+    list_display = ('location', 'description', 'created','modified', 'status','categories')
 
 # Register your models here.
 
