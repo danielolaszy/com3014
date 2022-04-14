@@ -4,4 +4,4 @@ from .models import Crimereport
 class CrimereportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Crimereport
-        fields = ('id', 'title', 'description', 'completed')
+        fields = ('location', 'description', 'created', 'modified','categories','status')
