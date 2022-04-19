@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
 
 const Report = () => {
@@ -8,8 +10,10 @@ const Report = () => {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("pending");
 
-  const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
-  const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
+  // const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
+  // const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
+
+  const [startDate, setStartDate] = useState(new Date());
 
   const reportCrime = async (e) => {
     e.preventDefault();
@@ -18,14 +22,13 @@ const Report = () => {
       "description": description,
       "categories": category,
       "status": status,
-      "crime_date": isoDate,
+      "crime_date": startDate.toISOString().slice(0, 10),
     });
   };
 
   useEffect(() => {
-    console.log(isoDate);
-    console.log(localDate);
-  }, []);
+    console.log("crime_date:", startDate.toISOString().slice(0, 10));
+  }, [startDate]);
 
   return (
     <>
@@ -35,7 +38,7 @@ const Report = () => {
             <h3 className="m-0">Report a Crime</h3>
           </div>
 
-          <div className="col-12">
+          <div className="col-6">
             <label htmlFor="inputCategory" className="form-label">
               Category
             </label>
@@ -56,6 +59,13 @@ const Report = () => {
               <option value="violent-crime">Violence and sexual offences</option>
               <option value="other-crime">Other crime</option>
             </select>
+          </div>
+
+          <div className="col-6">
+            <label htmlFor="inputDescription" className="form-label">
+              Crime Date
+            </label>
+            <DatePicker className="form-control col-6" dateFormat="yyyy/MM/dd" selected={startDate} onChange={(date) => setStartDate(date)} />
           </div>
 
           <div className="col-12">
