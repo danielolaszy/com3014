@@ -8,6 +8,9 @@ const Report = () => {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("pending");
 
+  const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
+  const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
+
   const reportCrime = async (e) => {
     e.preventDefault();
     axios.post("http://127.0.0.1:8000/api/crimereports/", {
@@ -15,8 +18,14 @@ const Report = () => {
       "description": description,
       "categories": category,
       "status": status,
+      "crime_date": isoDate,
     });
   };
+
+  useEffect(() => {
+    console.log(isoDate);
+    console.log(localDate);
+  }, []);
 
   return (
     <>
