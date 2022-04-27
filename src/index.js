@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import Dbsearch from "./components/Dbsearch";
 import Report from "./components/Report";
+import Crime from "./components/Crime";
+import Nav from "./components/Nav";
 
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Nav />
     <Report />
   </React.StrictMode>,
   document.getElementById("root")
