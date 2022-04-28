@@ -25,7 +25,7 @@ yarn-error.log*
 db.sqlite3
 
 # a virtual environment used by sidd
-vir_env
+vir_env/
 
-# since this is for CrimeDetails
-backend
+# since this is for crimereport and this is the crimedetails branch
+backend/
