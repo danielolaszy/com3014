@@ -12,10 +12,10 @@
 /build
 
 # a virtual environment used by sidd
-/vir_env/
+/vir_env/*
 
 # since this is for crimereport and this is the crimedetails branch
-/backend/
+/backend/*
 
 # misc
 .DS_Store
