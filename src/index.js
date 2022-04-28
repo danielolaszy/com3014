@@ -2,18 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import Dbsearch from "./components/Dbsearch";
-import Report from "./components/Report";
-import Crime from "./components/Crime";
-import Nav from "./components/Nav";
 
 import reportWebVitals from "./reportWebVitals";
 
+import { BrowserRouter } from "react-router-dom";
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Nav />
-    <Report />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

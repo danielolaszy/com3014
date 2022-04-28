@@ -23,7 +23,7 @@ const Search = () => {
   // Convert string from input field to coordinates
   const getCoordinates = async (e) => {
     e.preventDefault();
-    const response = await positionstackApi.get("forward?access_key=" + apiKey + "&query=" + address);
+    const response = await positionstackApi.get("forward?access_key=" + apiKey + "&query=" + address + ", UK");
     const coordinates = await response.data;
     // console.log(coordinates.data[0].latitude);
     // console.log(coordinates.data[0].longitude);
@@ -45,7 +45,7 @@ const Search = () => {
 
   return (
     <>
-      <section id="Search" className="bg-light p-5">
+      <section id="Search" className="bg-light rounded-3 p-5">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
@@ -60,7 +60,7 @@ const Search = () => {
           </div>
         </div>
       </section>
-      <section id="Results" className="bg-light p-5">
+      <section id="Results" className="bg-light rounded-3 p-5">
         <div className="container">
           <Apiresults crimes={crimes} />
         </div>

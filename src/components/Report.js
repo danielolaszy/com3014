@@ -1,31 +1,49 @@
 import React from "react";
+import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
 
 const Report = () => {
-  const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
-  const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
+  const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState("pending");
+
+  // const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
+  // const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
+
+  const [startDate, setStartDate] = useState(new Date());
+
+  const reportCrime = async (e) => {
+    e.preventDefault();
+    axios.post("http://127.0.0.1:8000/api/crimereports/", {
+      "location": location,
+      "description": description,
+      "categories": category,
+      "status": status,
+      "crime_date": startDate.toISOString().slice(0, 10),
+    });
+  };
 
   useEffect(() => {
-    console.log(isoDate);
-    console.log(localDate);
-  }, []);
+    console.log("crime_date:", startDate.toISOString().slice(0, 10));
+  }, [startDate]);
 
   return (
     <>
-      <div className="container bg-light p-5 rounded-3 mt-5">
-        <form className="row row-cols-6 g-3 align-items-center">
+      <div className="container bg-light p-5 rounded-3">
+        <form className="row row-cols-6 g-3 align-items-center" onSubmit={reportCrime}>
           <div className="col-12">
             <h3 className="m-0">Report a Crime</h3>
           </div>
 
-          <div className="col-12">
+          <div className="col-6">
             <label htmlFor="inputCategory" className="form-label">
               Category
             </label>
-            <select id="inputCategory" className="form-select">
-              <option value="Choose..." selected>
-                Choose...
-              </option>
+            <select id="inputCategory" className="form-select" onChange={(e) => setCategory(e.target.value)}>
+              <option value="">Choose...</option>
               <option value="anti-social-behaviour">Anti-social behaviour</option>
               <option value="bicycle-theft">Bicycle theft</option>
               <option value="burglary">Burglary</option>
@@ -43,18 +61,25 @@ const Report = () => {
             </select>
           </div>
 
+          <div className="col-6">
+            <label htmlFor="inputDescription" className="form-label">
+              Crime Date
+            </label>
+            <DatePicker className="form-control col-6" dateFormat="yyyy/MM/dd" selected={startDate} onChange={(date) => setStartDate(date)} />
+          </div>
+
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">
-              Street
+              Location
             </label>
-            <input type="text" className="form-control" id="inputAddress" placeholder="Location of the crime" />
+            <input type="text" className="form-control" id="inputAddress" placeholder="Location of the crime" onChange={(e) => setLocation(e.target.value)} />
           </div>
 
           <div className="col-12">
             <label htmlFor="inputDescription" className="form-label">
               Description
             </label>
-            <input type="text" className="form-control" id="inputDescription" placeholder="Description of the crime" />
+            <input type="text" className="form-control" id="inputDescription" placeholder="Description of the crime" onChange={(event) => setDescription(event.target.value)} />
           </div>
 
           <div className="col-12">
