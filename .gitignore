@@ -23,3 +23,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 db.sqlite3
+
+# a virtual environment used by sidd
+/vir_env
+
+# since this is for CrimeDetails
+/backend
