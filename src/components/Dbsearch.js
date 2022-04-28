@@ -21,7 +21,7 @@ const Dbsearch = () => {
 
   return (
     <>
-      <section id="Search" className="bg-light p-5">
+      <section id="Search" className="bg-light rounded-3 p-5">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
@@ -36,7 +36,7 @@ const Dbsearch = () => {
           </div>
         </div>
       </section>
-      <section id="Results" className="bg-light p-5">
+      <section id="Results" className="bg-light rounded-3 p-5">
         <div className="container">
           <Dbresults
             id={99618994}

@@ -32,7 +32,7 @@ const Report = () => {
 
   return (
     <>
-      <div className="container bg-light p-5 rounded-3 mt-5">
+      <div className="container bg-light p-5 rounded-3">
         <form className="row row-cols-6 g-3 align-items-center" onSubmit={reportCrime}>
           <div className="col-12">
             <h3 className="m-0">Report a Crime</h3>
