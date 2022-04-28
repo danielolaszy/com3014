@@ -4,7 +4,7 @@ from django.db import models
 class SearchcasesCrimereport(models.Model):
     id = models.BigIntegerField(primary_key=True)
     location = models.CharField(max_length=120)
-    description = models.CharField(max_length=max)
+    description = models.TextField()
     created = models.DateTimeField()
     modified = models.DateTimeField()
     status = models.CharField(max_length=120)
