@@ -19,7 +19,7 @@ const Report = () => {
 
   const reportCrime = async (e) => {
     e.preventDefault();
-    axios.post("http://127.0.0.1:8000/api/crimereports/", {
+    axios.post("http://127.0.0.1:7000/api/crimereports/", {
       "location": location,
       "description": description,
       "categories": category,
@@ -30,7 +30,7 @@ const Report = () => {
   };
 
   const getCrimes = async () => {
-    const response = await axios.get("http://127.0.0.1:8000/");
+    const response = await axios.get("http://127.0.0.1:7000/");
     const crimes = await response.data;
     console.log(crimes[crimes.length - 1].id);
     setCrimesArray(crimes);
