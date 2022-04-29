@@ -9,11 +9,13 @@ const Report = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("pending");
+  const [enableShowID, setEnableShowID] = useState(false);
 
   // const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
   // const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
 
   const [startDate, setStartDate] = useState(new Date());
+  const [crimesArray, setCrimesArray] = useState([]);
 
   const reportCrime = async (e) => {
     e.preventDefault();
@@ -24,6 +26,14 @@ const Report = () => {
       "status": status,
       "crime_date": startDate.toISOString().slice(0, 10),
     });
+    setEnableShowID(true);
+  };
+
+  const getCrimes = async () => {
+    const response = await axios.get("http://127.0.0.1:8000/");
+    const crimes = await response.data;
+    console.log(crimes[crimes.length - 1].id);
+    setCrimesArray(crimes);
   };
 
   useEffect(() => {
@@ -82,10 +92,14 @@ const Report = () => {
             <input type="text" className="form-control" id="inputDescription" placeholder="Description of the crime" onChange={(event) => setDescription(event.target.value)} />
           </div>
 
-          <div className="col-12">
-            <button type="submit" className="btn btn-primary">
+          <div className="d-grid gap-2 d-block">
+            <button type="submit" className="btn btn-primary px-4 gap-3">
               Report
             </button>
+            <button type="button" className={enableShowID ? "btn btn-outline-primary px-4 gap-3" : "btn btn-outline-primary px-4 gap-3 disabled"} onClick={() => getCrimes()}>
+              Show ID
+            </button>
+            {crimesArray.length > 0 ? <p>Crime ID: {crimesArray[crimesArray.length - 1].id}</p> : null}
           </div>
         </form>
       </div>
