@@ -25,4 +25,5 @@ router.register(r'crimereports', views.CrimereportView, 'crimereport')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('', include('crimereport.urls')),
 ]
