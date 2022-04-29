@@ -10,12 +10,11 @@ const Report = () => {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("pending");
   const [enableShowID, setEnableShowID] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [crimesArray, setCrimesArray] = useState([]);
 
   // const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
   // const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
-
-  const [startDate, setStartDate] = useState(new Date());
-  const [crimesArray, setCrimesArray] = useState([]);
 
   const reportCrime = async (e) => {
     e.preventDefault();
