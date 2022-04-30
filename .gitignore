@@ -11,8 +11,6 @@
 # production
 /build
 
-# ignore other directories
-
 # ignore virtual env
 vir_env
 
