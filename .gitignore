@@ -11,9 +11,6 @@
 # production
 /build
 
-# ignore other directories
-/Getcasedetails
-
 # ignore virtual env
 vir_env
 
