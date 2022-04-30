@@ -6,15 +6,15 @@ const Dbresult = ({ id, category, location, status, description, date }) => {
     <>
       <div className="row d-flex justify-content-center">
         <div className="col-md-6 ">
-          <div class="card text-center">
-            <div class="card-header">{id}</div>
-            <div class="card-body">
-              <h5 class="card-title">{category}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{location}</h6>
-              <p class="card-text">{description}</p>
+          <div className="card text-center">
+            <div className="card-header">{id}</div>
+            <div className="card-body">
+              <h5 className="card-title">{category}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">{location}</h6>
+              <p className="card-text">{description}</p>
             </div>
-            <div class="card-footer text-muted">
-              <small class="text-muted">{status}</small>
+            <div className="card-footer text-muted">
+              <small className="text-muted">{status}</small>
             </div>
           </div>
         </div>

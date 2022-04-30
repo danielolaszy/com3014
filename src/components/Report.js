@@ -9,21 +9,30 @@ const Report = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("pending");
+  const [enableShowID, setEnableShowID] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [crimesArray, setCrimesArray] = useState([]);
 
   // const [isoDate, setIsoDate] = useState(new Date().toISOString().slice(0, 10));
   // const [localDate, setLocalDate] = useState(new Date().toLocaleDateString());
 
-  const [startDate, setStartDate] = useState(new Date());
-
   const reportCrime = async (e) => {
     e.preventDefault();
-    axios.post("http://127.0.0.1:8000/api/crimereports/", {
+    axios.post("http://127.0.0.1:7000/api/crimereports/", {
       "location": location,
       "description": description,
       "categories": category,
       "status": status,
       "crime_date": startDate.toISOString().slice(0, 10),
     });
+    setEnableShowID(true);
+  };
+
+  const getCrimes = async () => {
+    const response = await axios.get("http://127.0.0.1:7000/");
+    const crimes = await response.data;
+    console.log(crimes[crimes.length - 1].id);
+    setCrimesArray(crimes);
   };
 
   useEffect(() => {
@@ -32,7 +41,7 @@ const Report = () => {
 
   return (
     <>
-      <div className="container bg-light p-5 rounded-3">
+      <div className="container bg-light p-4 rounded-3">
         <form className="row row-cols-6 g-3 align-items-center" onSubmit={reportCrime}>
           <div className="col-12">
             <h3 className="m-0">Report a Crime</h3>
@@ -79,14 +88,27 @@ const Report = () => {
             <label htmlFor="inputDescription" className="form-label">
               Description
             </label>
-            <input type="text" className="form-control" id="inputDescription" placeholder="Description of the crime" onChange={(event) => setDescription(event.target.value)} />
+            <textarea
+              type="text"
+              className="form-control"
+              id="inputDescription"
+              rows="3"
+              placeholder="Description of the crime"
+              onChange={(event) => setDescription(event.target.value)}
+            />
           </div>
 
-          <div className="col-12">
-            <button type="submit" className="btn btn-primary">
+          <div className="col-auto">
+            <button type="submit" className="btn btn-primary px-4 gap-3">
               Report
             </button>
           </div>
+          <div className="col-auto">
+            <button type="button" className={enableShowID ? "btn btn-outline-primary px-4 gap-3" : "btn btn-outline-primary px-4 gap-3 disabled"} onClick={() => getCrimes()}>
+              Show ID
+            </button>
+          </div>
+          <div className="col-auto">{crimesArray.length > 0 ? <p className="lead p-0 m-0">Your Crime ID: {crimesArray[crimesArray.length - 1].id}</p> : null}</div>
         </form>
       </div>
     </>
