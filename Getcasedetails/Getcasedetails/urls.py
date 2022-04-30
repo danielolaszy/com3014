@@ -18,9 +18,11 @@ from django.urls import path
 
 from django.urls import include,re_path
 
+from Searchcases import views
+
 # from Getcasedetails import Searchcases
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'^', include('Searchcases.urls'))
+    path('', include('Searchcases.urls'))
 ]
