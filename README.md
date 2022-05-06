@@ -20,11 +20,11 @@
    ```sh
    pip install djangorestframework django-cors-headers
    ```
-2. Install to establish mysql connection for Crimereport backend
+2. Install to establish mssql connection for Crimereport backend
    ```sh
    pip install mssql-django
    ```
-3. Install mysql driver for Crimereport backend
+3. Install sql driver for Crimereport backend
    Driver [link](https://www.microsoft.com/en-us/download/details.aspx?id=50420)
 
 4. To run Crimereport backend server use
