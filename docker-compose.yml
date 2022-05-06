@@ -8,5 +8,6 @@ services:
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
+      REACT_APP_API_KEY: 7470e2457fb56a7b6e02bcfe96b4bb66
     ports:
       - 4001:3000
