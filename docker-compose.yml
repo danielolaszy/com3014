@@ -11,3 +11,20 @@ services:
       REACT_APP_API_KEY: 7470e2457fb56a7b6e02bcfe96b4bb66
     ports:
       - 4001:3000
+
+  db1:
+    build: 
+      dockerfile: ./Getcasedetails/Dockerfile
+
+    ports:
+      - 8000:8000
+
+
+  #db2:
+  #  build: ./backend
+   # volumes:
+   #   - ./backend:/usr/src/app
+#
+   # ports:
+   #   - 8000:8000
+
