@@ -24,7 +24,19 @@
 3. Install sql driver for Crimereport backend
    Driver [link](https://www.microsoft.com/en-us/download/details.aspx?id=50420)
 
-4. To run Crimereport backend server use
+4. Change directory from root to Getcasedetails
+   ```
+   cd Getcasedetails
+   ```
+5. Run the command 
+   ```
+   py manage.py runserver
+   ```
+6. Open another terminal and change directory to backend
+   ```
+   cd backend
+   ```
+5. Run the command 
    ```
    py manage.py runserver 7000
    ```
